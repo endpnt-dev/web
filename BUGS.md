@@ -64,7 +64,7 @@
 
 - **Originally:** Medium, discovered 2026-04-24
 - **Resolved:** 2026-04-28
-- **Resolution commit:** *(to be filled after push)*
+- **Resolution commit:** 09f0b35
 - **Files changed:** `lib/apis.ts` (4 new entries), `app/page.tsx`, `app/apis/page.tsx`, `app/pricing/page.tsx`, `app/docs/page.tsx`, `components/PricingTable.tsx`, `lib/pricing.ts`
 - **What changed:** Added barcode, cipher, color, and pdf entries to `lib/apis.ts`. Updated all customer-visible "5 APIs" count references to "9 APIs" across product pages, pricing, and docs. Blog post historical references to "5 APIs" intentionally left as-is (founding narrative). Color palette entry correctly describes algorithmic generation from a seed color (not image-based) — partially closes P-007. Note: W-003 bug said "10 APIs" but the platform has 9 customer-facing APIs (web hub is not in the catalog).
 - **Secondary note:** W-006 (camelCase param names in existing entries) is a pre-existing tracked issue not addressed in this fix.
