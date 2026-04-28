@@ -25,7 +25,7 @@ export const PRICING_TIERS: PricingTier[] = [
     features: {
       requests: "100/month",
       rateLimit: "10/min",
-      apis: "All 5",
+      apis: "All 9",
       support: "Community",
       sla: "—",
     },
@@ -40,7 +40,7 @@ export const PRICING_TIERS: PricingTier[] = [
     features: {
       requests: "5,000/month",
       rateLimit: "60/min",
-      apis: "All 5",
+      apis: "All 9",
       support: "Email",
       sla: "—",
     },
@@ -56,7 +56,7 @@ export const PRICING_TIERS: PricingTier[] = [
     features: {
       requests: "25,000/month",
       rateLimit: "300/min",
-      apis: "All 5",
+      apis: "All 9",
       support: "Priority",
       sla: "99.9%",
     },
@@ -71,7 +71,7 @@ export const PRICING_TIERS: PricingTier[] = [
     features: {
       requests: "Unlimited",
       rateLimit: "Custom",
-      apis: "All 5",
+      apis: "All 9",
       support: "Dedicated",
       sla: "Custom",
     },
@@ -102,6 +102,6 @@ export const PRICING_FAQ = [
   },
   {
     question: "How does the API key work across all services?",
-    answer: "One API key gives you access to all 5 APIs. Your request limits and rate limits are shared across all APIs.",
+    answer: "One API key gives you access to all 9 APIs. Your request limits and rate limits are shared across all APIs.",
   },
 ];

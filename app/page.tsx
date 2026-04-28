@@ -17,7 +17,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              5 Essential APIs for developers
+              9 Essential APIs for developers
             </h2>
             <p className="mt-6 text-lg leading-8 text-muted">
               Everything you need to build modern applications. One platform, one API key, zero headaches.
@@ -62,7 +62,7 @@ export default function HomePage() {
                 </dt>
                 <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted">
                   <p className="flex-auto">
-                    Sign up for free and get your API key instantly. One key works across all 5 APIs.
+                    Sign up for free and get your API key instantly. One key works across all 9 APIs.
                   </p>
                 </dd>
               </div>

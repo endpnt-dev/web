@@ -16,7 +16,7 @@ export default function PricingTable() {
             Choose the right plan for you
           </p>
           <p className="mt-6 text-lg leading-8 text-muted">
-            All plans include access to all 5 APIs with a single API key. No setup fees, ever.
+            All plans include access to all 9 APIs with a single API key. No setup fees, ever.
           </p>
 
           {/* Annual/Monthly toggle */}
@@ -129,7 +129,7 @@ export default function PricingTable() {
 
         <div className="mt-12 text-center">
           <p className="text-sm text-muted">
-            All plans include access to all 5 APIs with a single API key
+            All plans include access to all 9 APIs with a single API key
           </p>
         </div>
       </div>

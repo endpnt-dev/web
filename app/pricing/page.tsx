@@ -5,10 +5,10 @@ import { PRICING_FAQ } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Pricing - Simple, transparent pricing | endpnt.dev",
-  description: "Choose the right plan for your project. All plans include access to all 5 APIs with a single API key. Start free, scale as you grow.",
+  description: "Choose the right plan for your project. All plans include access to all 9 APIs with a single API key. Start free, scale as you grow.",
   openGraph: {
     title: "Pricing - Simple, transparent pricing | endpnt.dev",
-    description: "Choose the right plan for your project. All plans include access to all 5 APIs with a single API key.",
+    description: "Choose the right plan for your project. All plans include access to all 9 APIs with a single API key.",
   },
 };
 

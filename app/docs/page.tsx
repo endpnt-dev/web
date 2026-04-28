@@ -60,7 +60,7 @@ export default function DocsPage() {
 
           <p className="text-muted mb-6">
             All endpnt.dev APIs use API key authentication. Include your API key in the <code>x-api-key</code> header
-            with every request. Your API key starts with <code>ek_</code> and works across all 5 APIs.
+            with every request. Your API key starts with <code>ek_</code> and works across all 9 APIs.
           </p>
 
           <CodeBlock

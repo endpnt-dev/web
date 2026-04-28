@@ -10,19 +10,6 @@
 
 ## Open bugs
 
-
-
-### W-003 — `lib/apis.ts` lists only 5 of 10 APIs
-
-- **Severity:** Medium (homepage/showcase incomplete)
-- **File:** `lib/apis.ts`
-- **Discovered:** 2026-04-24 (biweekly code health audit)
-- **Symptom:** `lib/apis.ts` (which drives the API catalog/showcase on the homepage) only lists 5 of the 10 APIs on the platform. The 5 missing APIs are not shown to prospective users browsing the homepage.
-- **Root cause:** File was populated with the initial 5 APIs during scaffolding and never updated as new APIs launched.
-- **Impact:** New visitors see an incomplete product — half the platform's value proposition is invisible. Affects conversion from homepage visitors to signed-up users.
-- **Fix approach:** Add entries for all 10 APIs to `lib/apis.ts`. Reference `docs/API-CATALOG.md` for accurate descriptions and endpoint lists. Verify the component that renders the catalog renders all entries.
-- **Status:** Open. Fix before public launch.
-
 ### W-004 — `app/error.tsx` missing — no global error boundary
 
 - **Severity:** Low (fallback error handling absent)
@@ -73,11 +60,22 @@
 
 ## Resolved bugs
 
-### W-002 — Stale API endpoint paths in code examples
+### W-003 — `lib/apis.ts` lists only 5 of 9 APIs
 
 - **Originally:** Medium, discovered 2026-04-24
 - **Resolved:** 2026-04-28
 - **Resolution commit:** *(to be filled after push)*
+- **Files changed:** `lib/apis.ts` (4 new entries), `app/page.tsx`, `app/apis/page.tsx`, `app/pricing/page.tsx`, `app/docs/page.tsx`, `components/PricingTable.tsx`, `lib/pricing.ts`
+- **What changed:** Added barcode, cipher, color, and pdf entries to `lib/apis.ts`. Updated all customer-visible "5 APIs" count references to "9 APIs" across product pages, pricing, and docs. Blog post historical references to "5 APIs" intentionally left as-is (founding narrative). Color palette entry correctly describes algorithmic generation from a seed color (not image-based) — partially closes P-007. Note: W-003 bug said "10 APIs" but the platform has 9 customer-facing APIs (web hub is not in the catalog).
+- **Secondary note:** W-006 (camelCase param names in existing entries) is a pre-existing tracked issue not addressed in this fix.
+
+---
+
+### W-002 — Stale API endpoint paths in code examples
+
+- **Originally:** Medium, discovered 2026-04-24
+- **Resolved:** 2026-04-28
+- **Resolution commit:** 85d7061
 - **Files changed:** `lib/apis.ts` (5 paths), `components/Hero.tsx` (3 paths), `app/docs/page.tsx` (3 paths, replace_all), `app/blog/[slug]/page.tsx` (2 paths, replace_all), `app/apis/page.tsx` (1 template path)
 - **What changed:** 14 stale `/api/<operation>` paths replaced with correct `/api/v1/<operation>` paths. Several also had wrong operation names fixed: `/api/screenshot` → `/api/v1/capture`, `/api/preview` → `/api/v1/unfurl`, `/api/email` → `/api/v1/validate/email`.
 - **Secondary issues discovered:** W-006 logged for camelCase parameter names and incorrect response field names in the same examples (out of scope for this fix).
@@ -88,7 +86,7 @@
 
 - **Originally:** Medium (customer-visible 404s), discovered 2026-04-24
 - **Resolved:** 2026-04-28
-- **Resolution commit:** *(to be filled after push)*
+- **Resolution commit:** f1d9be4
 - **Files created:** `app/about/page.tsx`, `app/privacy/page.tsx`, `app/terms/page.tsx`
 - **Also updated:** `app/sitemap.ts` — added `/privacy` and `/terms` entries (were missing alongside the pre-existing `/about` entry)
 - **What changed:** Three stub pages created. Privacy and Terms contain TODO markers; JK to author legal content before launch. About contains brief mission statement. Footer links at `components/Footer.tsx` were already correct — they just had no target pages.

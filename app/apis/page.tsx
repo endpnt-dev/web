@@ -5,10 +5,10 @@ import { APIS } from "@/lib/apis";
 
 export const metadata: Metadata = {
   title: "APIs - Developer APIs that just work | endpnt.dev",
-  description: "Browse all 5 developer APIs: Screenshot, QR Code, URL Preview, Image Conversion, and Validation. No AI dependencies, just clean, fast endpoints.",
+  description: "Browse all 9 developer APIs: Screenshot, QR Code, Barcode, Cipher, Color, URL Preview, Image Conversion, PDF, and Validation. No AI dependencies, just clean, fast endpoints.",
   openGraph: {
     title: "APIs - Developer APIs that just work | endpnt.dev",
-    description: "Browse all 5 developer APIs: Screenshot, QR Code, URL Preview, Image Conversion, and Validation.",
+    description: "Browse all 9 developer APIs: Screenshot, QR Code, Barcode, Cipher, Color, URL Preview, Image Conversion, PDF, and Validation.",
   },
 };
 
@@ -22,7 +22,7 @@ export default function APIsPage() {
             All APIs
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted">
-            5 essential developer APIs with consistent authentication, predictable responses,
+            9 essential developer APIs with consistent authentication, predictable responses,
             and no AI dependencies. One API key unlocks them all.
           </p>
         </div>
@@ -85,7 +85,7 @@ export default function APIsPage() {
             Ready to get started?
           </h2>
           <p className="mt-4 text-muted">
-            Get your API key and start building with all 5 APIs today.
+            Get your API key and start building with all 9 APIs today.
           </p>
           <div className="mt-8">
             <a
