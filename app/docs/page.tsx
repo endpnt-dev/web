@@ -65,7 +65,7 @@ export default function DocsPage() {
 
           <CodeBlock
             title="Authentication Example"
-            code={`curl -X POST "https://screenshot.endpnt.dev/api/screenshot" \\
+            code={`curl -X POST "https://screenshot.endpnt.dev/api/v1/capture" \\
   -H "x-api-key: ek_your_api_key_here" \\
   -H "Content-Type: application/json" \\
   -d '{"url": "https://example.com"}'`}
@@ -276,7 +276,7 @@ export default function DocsPage() {
               <h3 className="text-lg font-semibold text-foreground mb-3">JavaScript/Node.js</h3>
               <CodeBlock
                 code={`// Using fetch (browser) or node-fetch (Node.js)
-const response = await fetch('https://screenshot.endpnt.dev/api/screenshot', {
+const response = await fetch('https://screenshot.endpnt.dev/api/v1/capture', {
   method: 'POST',
   headers: {
     'x-api-key': 'ek_your_api_key_here',
@@ -299,7 +299,7 @@ console.log(result);`}
               <CodeBlock
                 code={`import requests
 
-url = "https://screenshot.endpnt.dev/api/screenshot"
+url = "https://screenshot.endpnt.dev/api/v1/capture"
 headers = {
     "x-api-key": "ek_your_api_key_here",
     "Content-Type": "application/json"

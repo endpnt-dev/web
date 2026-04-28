@@ -217,7 +217,7 @@ Average response time: 3.7s ± 2.1s (varies by load)`}
 
             <CodeBlock
               title="Basic screenshot request"
-              code={`curl -X POST "https://screenshot.endpnt.dev/api/screenshot" \\
+              code={`curl -X POST "https://screenshot.endpnt.dev/api/v1/capture" \\
   -H "x-api-key: ek_your_api_key_here" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -411,7 +411,7 @@ Average response time: 3.7s ± 2.1s (varies by load)`}
               title="JavaScript with error handling"
               code={`async function takeScreenshot(url) {
   try {
-    const response = await fetch('https://screenshot.endpnt.dev/api/screenshot', {
+    const response = await fetch('https://screenshot.endpnt.dev/api/v1/capture', {
       method: 'POST',
       headers: {
         'x-api-key': process.env.ENDPNT_API_KEY,

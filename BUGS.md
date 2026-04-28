@@ -11,16 +11,6 @@
 ## Open bugs
 
 
-### W-002 — Stale API endpoint paths in code examples
-
-- **Severity:** Medium (developer experience — misleads API integrators)
-- **File:** API documentation pages or code example components (verify exact paths during fix)
-- **Discovered:** 2026-04-24 (biweekly code health audit)
-- **Symptom:** Code examples on the web hub reference pre-v1 API endpoint paths (e.g., `/api/convert` instead of the correct `/api/v1/convert`). A developer copy-pasting these examples will get 404s from the API.
-- **Root cause:** Code examples were written before the v1 versioned path convention was finalized. Never updated.
-- **Impact:** Developers integrating the API from the web examples get immediate 404 failures, undermining confidence in the product and potentially generating support requests.
-- **Fix approach:** Audit all code example strings in the web repo for API endpoint paths. Replace pre-v1 paths (`/api/<operation>`) with versioned paths (`/api/v1/<operation>`). Verify against actual deployed route files in each API repo.
-- **Status:** Open. Fix before public launch.
 
 ### W-003 — `lib/apis.ts` lists only 5 of 10 APIs
 
@@ -58,9 +48,41 @@
   3. Verify build still passes after removal.
 - **Status:** Open. Low priority. Clean up before public launch.
 
+### W-006 — Code example parameter names and response fields use wrong casing/naming
+
+- **Severity:** Medium (developer experience — copy-pasted examples fail at runtime)
+- **Files:** `lib/apis.ts`, `components/Hero.tsx`, `app/docs/page.tsx`, `app/blog/[slug]/page.tsx`
+- **Discovered:** 2026-04-28 (surfaced during W-002 audit)
+- **Symptom:** Code examples use camelCase parameter names and response field names instead of the snake_case names the APIs actually accept/return. Also, blog post documents non-existent parameters and response fields, and uses wrong device names.
+- **Known wrong parameter names:**
+  - `fullPage` → `full_page` (screenshot, multiple files)
+  - `foregroundColor` / `backgroundColor` → `color` / `background` (QR, apis.ts)
+  - `text` → `data` (QR input, apis.ts and Hero.tsx)
+  - `checkMx` / `checkDisposable` → `check_mx` / `check_disposable` (validate, apis.ts)
+  - `darkMode` → `dark_mode` (screenshot blog post)
+- **Known wrong response fields (docs/page.tsx):**
+  - `imageUrl` → `image` (base64 string, not URL)
+  - `processingTime` → `processing_ms`
+  - `requestId` → `request_id`
+  - `apiVersion` — not a real field in the response envelope
+- **Blog post extra issues:** Documents parameters that don't exist (`blockAds`, `blockMedia`, `cache`, `headers`, `cookies`, `padding`, `paperSize`, `waitFor` as object) and wrong device names (`iPhone 12 Pro`, `Samsung Galaxy S21` instead of `desktop`, `mobile`, `tablet`).
+- **Fix approach:** Audit all code examples against `docs/API-CATALOG.md` (platform root). Correct parameter names, response field names, and remove non-existent parameters. Verify against each API's actual route handler.
+- **Status:** Open. Fix before public launch — misleads integrators and generates support requests.
+
 ---
 
 ## Resolved bugs
+
+### W-002 — Stale API endpoint paths in code examples
+
+- **Originally:** Medium, discovered 2026-04-24
+- **Resolved:** 2026-04-28
+- **Resolution commit:** *(to be filled after push)*
+- **Files changed:** `lib/apis.ts` (5 paths), `components/Hero.tsx` (3 paths), `app/docs/page.tsx` (3 paths, replace_all), `app/blog/[slug]/page.tsx` (2 paths, replace_all), `app/apis/page.tsx` (1 template path)
+- **What changed:** 14 stale `/api/<operation>` paths replaced with correct `/api/v1/<operation>` paths. Several also had wrong operation names fixed: `/api/screenshot` → `/api/v1/capture`, `/api/preview` → `/api/v1/unfurl`, `/api/email` → `/api/v1/validate/email`.
+- **Secondary issues discovered:** W-006 logged for camelCase parameter names and incorrect response field names in the same examples (out of scope for this fix).
+
+---
 
 ### W-001 — Footer links to non-existent pages (/about, /privacy, /terms)
 

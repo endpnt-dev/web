@@ -8,21 +8,21 @@ import CodeBlock from "./CodeBlock";
 const codeExamples = [
   {
     title: "Screenshot API",
-    code: `curl -X POST "https://screenshot.endpnt.dev/api/screenshot" \\
+    code: `curl -X POST "https://screenshot.endpnt.dev/api/v1/capture" \\
   -H "x-api-key: ek_YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{"url": "https://example.com", "fullPage": true}'`,
   },
   {
     title: "QR Code API",
-    code: `curl -X POST "https://qr.endpnt.dev/api/generate" \\
+    code: `curl -X POST "https://qr.endpnt.dev/api/v1/generate" \\
   -H "x-api-key: ek_YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{"text": "https://endpnt.dev", "format": "svg"}'`,
   },
   {
     title: "URL Preview API",
-    code: `curl -X POST "https://preview.endpnt.dev/api/preview" \\
+    code: `curl -X POST "https://preview.endpnt.dev/api/v1/unfurl" \\
   -H "x-api-key: ek_YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{"url": "https://github.com/vercel/next.js"}'`,

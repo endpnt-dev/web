@@ -35,7 +35,7 @@ export const APIS: API[] = [
     color: "#0F6E56",
     codeExample: {
       title: "Capture a screenshot",
-      code: `curl -X POST "https://screenshot.endpnt.dev/api/screenshot" \\
+      code: `curl -X POST "https://screenshot.endpnt.dev/api/v1/capture" \\
   -H "x-api-key: ek_YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -57,7 +57,7 @@ export const APIS: API[] = [
     color: "#534AB7",
     codeExample: {
       title: "Generate a QR code",
-      code: `curl -X POST "https://qr.endpnt.dev/api/generate" \\
+      code: `curl -X POST "https://qr.endpnt.dev/api/v1/generate" \\
   -H "x-api-key: ek_YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -80,7 +80,7 @@ export const APIS: API[] = [
     color: "#D85A30",
     codeExample: {
       title: "Get URL metadata",
-      code: `curl -X POST "https://preview.endpnt.dev/api/preview" \\
+      code: `curl -X POST "https://preview.endpnt.dev/api/v1/unfurl" \\
   -H "x-api-key: ek_YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -100,7 +100,7 @@ export const APIS: API[] = [
     color: "#1D9E75",
     codeExample: {
       title: "Convert and resize image",
-      code: `curl -X POST "https://convert.endpnt.dev/api/convert" \\
+      code: `curl -X POST "https://convert.endpnt.dev/api/v1/convert" \\
   -H "x-api-key: ek_YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -123,7 +123,7 @@ export const APIS: API[] = [
     color: "#378ADD",
     codeExample: {
       title: "Validate an email",
-      code: `curl -X POST "https://validate.endpnt.dev/api/email" \\
+      code: `curl -X POST "https://validate.endpnt.dev/api/v1/validate/email" \\
   -H "x-api-key: ek_YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{

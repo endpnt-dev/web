@@ -35,7 +35,7 @@ export default function APIsPage() {
           </p>
           <CodeBlock
             title="Authentication Example"
-            code={`curl -X POST "https://[api].endpnt.dev/api/[endpoint]" \\
+            code={`curl -X POST "https://[api].endpnt.dev/api/v1/[endpoint]" \\
   -H "x-api-key: ek_YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{"param": "value"}'`}
