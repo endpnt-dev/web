@@ -4,25 +4,12 @@
 
 **ID prefix:** `W-NNN` (sequential, do not reuse).
 
-**Last updated:** 2026-04-24 (created by first biweekly code health audit).
+**Last updated:** 2026-04-28.
 
 ---
 
 ## Open bugs
 
-### W-001 — Footer links to non-existent pages (/about, /privacy, /terms)
-
-- **Severity:** Medium (customer-visible 404s)
-- **File:** Footer component (verify exact path — likely `app/components/Footer.tsx` or `components/Footer.tsx`)
-- **Discovered:** 2026-04-24 (biweekly code health audit)
-- **Symptom:** The site footer links to `/about`, `/privacy`, and `/terms`. None of these pages exist in the `app/` directory. Clicking them returns a Next.js 404 page. Visitors who investigate the site before signing up (as many developers do) will hit these 404s and lose confidence.
-- **Root cause:** Pages were planned/linked in the footer during initial scaffolding but never implemented.
-- **Impact:** Any user who clicks About, Privacy Policy, or Terms of Service lands on a 404. Privacy and Terms pages are also a legal/compliance concern — most B2B API products require these before customer acquisition.
-- **Fix approach:**
-  1. Implement stub pages for `/about`, `/privacy`, and `/terms` — even a single-sentence placeholder is better than a 404.
-  2. Privacy policy and terms of service content should be reviewed by JK before launch; do not generate filler legal text — create the page structure, leave content as `TODO: insert [privacy/terms] text`.
-  3. About page can be a brief product mission statement.
-- **Status:** Open. Fix before marketing launch (Privacy and Terms are near-launch-blockers for B2B credibility).
 
 ### W-002 — Stale API endpoint paths in code examples
 
@@ -75,7 +62,14 @@
 
 ## Resolved bugs
 
-*(None resolved yet — file created 2026-04-24.)*
+### W-001 — Footer links to non-existent pages (/about, /privacy, /terms)
+
+- **Originally:** Medium (customer-visible 404s), discovered 2026-04-24
+- **Resolved:** 2026-04-28
+- **Resolution commit:** *(to be filled after push)*
+- **Files created:** `app/about/page.tsx`, `app/privacy/page.tsx`, `app/terms/page.tsx`
+- **Also updated:** `app/sitemap.ts` — added `/privacy` and `/terms` entries (were missing alongside the pre-existing `/about` entry)
+- **What changed:** Three stub pages created. Privacy and Terms contain TODO markers; JK to author legal content before launch. About contains brief mission statement. Footer links at `components/Footer.tsx` were already correct — they just had no target pages.
 
 ---
 
