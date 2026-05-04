@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.env.local
+.env
+*.tgz
+npm-debug.log*
+.vercel
+.env*.local
+
+# Claude Code
+.claude/

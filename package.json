@@ -1,1 +1,38 @@
-{ "name": "endpnt-web", "version": "0.0.1", "scripts": { "build": "echo done" } }
+{
+  "name": "endpnt-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^3.0.0",
+    "@mdx-js/react": "^3.0.0",
+    "@next/mdx": "^14.2.5",
+    "@swc/counter": "^0.1.3",
+    "@swc/helpers": "^0.5.21",
+    "clsx": "^2.1.1",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.428.0",
+    "next": "^14.2.35",
+    "next-mdx-remote": "^6.0.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "shiki": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.6",
+    "typescript": "^5"
+  }
+}
