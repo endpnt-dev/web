@@ -65,7 +65,7 @@ export default function CodeBlock({ code, language, title }: CodeBlockProps) {
           </button>
         )}
         <pre className="overflow-x-auto p-4 text-sm">
-          <code className="language-{language}">{code}</code>
+          <code className={`language-${language}`}>{code}</code>
         </pre>
       </div>
     </div>

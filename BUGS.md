@@ -4,7 +4,7 @@
 
 **ID prefix:** `W-NNN` (sequential, do not reuse).
 
-**Last updated:** 2026-04-28.
+**Last updated:** 2026-05-04.
 
 ---
 
@@ -55,6 +55,40 @@
 - **Blog post extra issues:** Documents parameters that don't exist (`blockAds`, `blockMedia`, `cache`, `headers`, `cookies`, `padding`, `paperSize`, `waitFor` as object) and wrong device names (`iPhone 12 Pro`, `Samsung Galaxy S21` instead of `desktop`, `mobile`, `tablet`).
 - **Fix approach:** Audit all code examples against `docs/API-CATALOG.md` (platform root). Correct parameter names, response field names, and remove non-existent parameters. Verify against each API's actual route handler.
 - **Status:** Open. Fix before public launch — misleads integrators and generates support requests.
+
+### W-007 — Footer API list hardcodes 5 APIs, missing 4
+
+- **Severity:** Medium (navigation — users cannot reach Barcode, Cipher, Color, PDF from the footer)
+- **File:** `components/Footer.tsx`
+- **Discovered:** 2026-05-04 (pre-merge QA review)
+- **Symptom:** Footer `apis` array is a hardcoded list of 5 APIs (Screenshot, QR, URL Preview, Image Conversion, Validation). W-003 fixed `lib/apis.ts` and all pages that import from it, but the Footer uses a standalone static array that was not updated. Barcode, Cipher, Color, and PDF have no footer navigation link.
+- **Root cause:** Footer was implemented with a local static array instead of importing from `lib/apis.ts`. W-003 missed it.
+- **Impact:** Visitors navigating from the footer cannot reach 4 of 9 APIs.
+- **Fix approach:** Either import `APIS` from `lib/apis.ts` and map over it, or manually add the missing 4 entries to the static array.
+- **Cross-reference:** W-003 (W-003 resolution missed the Footer component)
+- **Status:** Open. Fix before public launch.
+
+### W-008 — PricingTable CTA buttons are non-functional
+
+- **Severity:** Low (conversion — CTAs on pricing page do nothing on click)
+- **File:** `components/PricingTable.tsx`
+- **Discovered:** 2026-05-04 (pre-merge QA review)
+- **Symptom:** "Get Started" and "Contact Us" buttons on pricing tiers are plain `<button>` elements with no `onClick` handler and no `href`. Clicking them produces no navigation or action.
+- **Root cause:** Placeholder buttons added during scaffolding; sign-up/contact flow not yet implemented.
+- **Impact:** Pricing page CTAs are dead. No conversion path for interested visitors.
+- **Fix approach:** Replace `<button>` elements with `<a>` tags. Free tier "Get Started" → link to `/docs` or future sign-up page. Paid tier "Contact Us" → `mailto:hello@endpnt.dev`.
+- **Status:** Open. Fix before public launch.
+
+### W-009 — `public/og-image.png` placeholder removed — real branded OG image needed
+
+- **Severity:** Medium (marketing — no social sharing image for any page)
+- **File:** `public/og-image.png` (deleted), `app/layout.tsx` (og image reference removed)
+- **Discovered:** 2026-05-04 (pre-merge QA review)
+- **Symptom:** `public/og-image.png` contained a data-URI text string instead of a binary PNG file. The broken file was deleted and all `og-image.png` references stripped from `app/layout.tsx` metadata (Twitter card downgraded to `summary`). No OG image now ships with the site.
+- **Root cause:** Placeholder data-URI committed in place of a real image during scaffolding.
+- **Impact:** Link previews on Twitter/X, LinkedIn, Slack, Discord show no image for any endpnt.dev URL.
+- **Fix approach:** Design a 1200×630 PNG (endpnt.dev branding, dark background per site theme). Place at `public/og-image.png`. Restore `images` arrays in `app/layout.tsx` openGraph and twitter blocks, and change twitter card back to `summary_large_image`.
+- **Status:** Open. Fix before public launch.
 
 ---
 

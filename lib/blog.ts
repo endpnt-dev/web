@@ -13,7 +13,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "introducing-endpnt",
     title: "Introducing endpnt.dev — Developer APIs that just work",
-    description: "Why we built a platform of 5 essential developer APIs with zero AI dependencies and a focus on reliability.",
+    description: "Why we built a platform of 9 essential developer APIs with zero AI dependencies and a focus on reliability.",
     publishedAt: "2026-04-13",
     author: "JK",
     readTime: "5 min read",

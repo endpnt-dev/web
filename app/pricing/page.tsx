@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { ChevronDown } from "lucide-react";
 import PricingTable from "@/components/PricingTable";
 import { PRICING_FAQ } from "@/lib/pricing";
 
